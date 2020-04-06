@@ -33,22 +33,25 @@ namespace GameCode
             int randomY = randomLocationY.Next(1, (SizeY + 1));
             XLocations.Add(randomX);
             YLocations.Add(randomY);
-            int countDuplicates = 0;
-            for (int i = 0; i < XLocations.Count; i++)
+            var duplicates = from value in XLocations
+                             where XLocations == YLocations
+                             select value;
+            int countTwins = 0;
+            foreach (var value in duplicates)
             {
-                if (XLocations[i] == YLocations[i])
+                for (int i = 0; i < XLocations.Count; i++)
                 {
-                    countDuplicates++;
-                    if (countDuplicates == 2)
+                    if (XLocations[i] == value && YLocations[i] == value)
                     {
-                        XLocations[i] = reshuffle.Next(1, SizeX + 1);
-                        YLocations[i] = reshuffle.Next(1, SizeY + 1);
+                        countTwins++;
+                        if(countTwins == 2)
+                        {
+                            XLocations[i] = reshuffle.Next(1, SizeX + 1);
+                            YLocations[i] = reshuffle.Next(1, SizeX + 1);
+                        }
                     }
                 }
             }
-            
-            
-            
         }
         public void OnClick(object sender, EventHandler e)
         {
