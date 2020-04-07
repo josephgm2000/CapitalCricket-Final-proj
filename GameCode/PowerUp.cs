@@ -25,7 +25,10 @@ namespace GameCode
 
         public void FogOfWar()
         {
-            if(MinesFlagged == .50)
+            if (MinesFlagged == .50)
+            {
+
+            }
         
         
 

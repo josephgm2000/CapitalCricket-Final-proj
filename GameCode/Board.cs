@@ -6,30 +6,40 @@ namespace GameCode
 {
     public enum Difficulty
     {
-        Easy, Medium, Hard
+        Easy = 0, Medium = 1, Hard = 2
     }
 
 
     class Board
     {
-        private int basE;
-        private int height;
-        private int totalmines;
+        
 
-        public Square BoardSquares { get; set; }
+        public Square[,] BoardSquares { get; set; }
 
         public int TotalMines { get; set; }
 
-        public int Base { get; set; }
+        private int baSe;
 
-        public int Height { get; set; }
+        public int Base // set difficulty here 
+        {
+            get { return baSe; }
+            set { baSe = value; }
+        }
 
-        public string Difficulty;
+
+        private int height;
+
+        public int Height // set difficulty here 
+        {
+            get { return height; }
+            set { height = value; }
+        }
 
 
         public Board()
         {
-
+            BoardSquares = new Square[Base, Height];
+            
         }
            
         public int AdjacentMines() // Method to display the numbers on the squares surrounding mines 
