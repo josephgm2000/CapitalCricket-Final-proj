@@ -10,7 +10,7 @@ namespace GameCode
         public string LastName { get; set; }
         public Player(string firstName, string lastName)
         {
-
+            
         }
     }
 }
