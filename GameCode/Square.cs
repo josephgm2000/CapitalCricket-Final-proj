@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameCode
 {
-    class Square
+    public class Square
     {
         public List<int> XLocations { get; set; }
         public List<int> YLocations { get; set; }
@@ -24,10 +24,21 @@ namespace GameCode
         {
             this.SizeX = sizeX;
             this.SizeY = SizeY;
+            CreateMines(totalMines);
+            SetLocations();
         }
-        public void CreateMines(int mines)
+        public bool CreateMines(int mines)
         {
-
+            int count = 0;
+            if (count < mines)
+            {
+                count++;
+                return IsMine = true;
+            }
+            else
+            {
+                return IsMine = false;
+            }
         }
         public void SetLocations()
         {
@@ -38,7 +49,6 @@ namespace GameCode
             RowX = randomX;
             ColumnY = randomY;
             var duplicates = from value in XLocations
-                             where XLocations == YLocations
                              select value;
             int countTwins = 0;
             foreach (var value in duplicates)
