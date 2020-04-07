@@ -9,6 +9,8 @@ namespace GameCode
     {
         public List<int> XLocations { get; set; }
         public List<int> YLocations { get; set; }
+        public int RowX { get; set; }
+        public int ColumnY { get; set; }
         public int SizeX { get; set; }
         public int SizeY { get; set; }
         public bool IsMine { get; set; }
@@ -33,6 +35,8 @@ namespace GameCode
             int randomY = randomLocationY.Next(1, (SizeY + 1));
             XLocations.Add(randomX);
             YLocations.Add(randomY);
+            RowX = randomX;
+            ColumnY = randomY;
             var duplicates = from value in XLocations
                              where XLocations == YLocations
                              select value;
@@ -48,6 +52,9 @@ namespace GameCode
                         {
                             XLocations[i] = reshuffle.Next(1, SizeX + 1);
                             YLocations[i] = reshuffle.Next(1, SizeX + 1);
+                            RowX = XLocations[i];
+                            ColumnY = YLocations[i];
+                            countTwins = 0;
                         }
                     }
                 }
