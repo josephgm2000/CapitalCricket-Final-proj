@@ -17,7 +17,7 @@ namespace GameCode
             {
                 List<Square> mineList = new List<Square>();  
                 time = TimeSpan.FromSeconds(45);
-                for (int i = 0; i < ; i++)
+                for (int i = 0; i < 6; i++)
                 {
 
                 }

@@ -18,6 +18,7 @@ namespace GameCode
         public bool IsRevealed { get; set; }
         public bool IsClicked { get; set; }
         public int AdjacentMines { get; set; }
+        public string SquareVal { get; set; }
         private static Random reshuffle = new Random();
         public Square(int sizeX, int SizeY, int totalMines)
         {
@@ -32,16 +33,19 @@ namespace GameCode
             int count = 0;
             if (count < mines)
             {
-                if (rnd <= .40)
+                if (rnd <= .10)
                 {
                     count++;
                     IsMine = true;
+                    SquareVal = "*";
                 }
                 else
                 {
                     IsMine = false;
+                    SquareVal = Convert.ToString(AdjacentMines);
                 }
-            }       
+            }
+            
         }
         public void SetLocations()
         {
@@ -83,9 +87,6 @@ namespace GameCode
             }
 
         }
-        public void OnClick(object sender, EventHandler e)
-        {
-
-        }
+        
     }
 }
