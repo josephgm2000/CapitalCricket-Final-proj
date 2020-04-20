@@ -25,17 +25,17 @@ namespace GameCode
         {
             this.SizeX = sizeX;
             this.SizeY = SizeY;
-            IsMine = true;
-            
-            
-
+            IsMine = false;  
         }
-        public void CreateMines()
+        public void SetMine()
         {
-            if (IsMine == true)
+            double rnd = reshuffle.NextDouble();
+            if (rnd <= .45)
             {
+                IsMine = true;
                 SquareVal = "*";
             }
+
         }
         public void SetLocations()
         {

@@ -9,12 +9,11 @@ namespace GameCode
         Easy = 0, Medium = 1, Hard = 2
     }
 
-
     class Board
     {
         public Square[,] BoardSquares { get; set; }
 
-        private int totalMines;
+        private int totalMines = 20;
         public int TotalMines
         {
             get
@@ -48,43 +47,48 @@ namespace GameCode
         public Board()
         {
             BoardSquares = new Square[Base, Height];
-            int count = 0;
-            for (int i = 0; i < Base; i++)
+            for (int i = 0; i < Height; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < Base; j++)
                 {
                     BoardSquares[i, j] = new Square(Base, Height);
-                    if (BoardSquares[i,j].IsMine == true)
+                }
+
+            }
+            int count = 0;
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Base; j++)
+                {
+                    BoardSquares[i, j].SetMine();
+                    while (count < TotalMines)
                     {
-                        count++;
-                        if (count > TotalMines)
+                        if (BoardSquares[i, j].IsMine == true)
                         {
-                            BoardSquares[i, j].IsMine = false;
+                            count++;
                         }
                     }
                 }
-
             }
 
         }
 
         public void AdjacentMines() // Method to display the numbers on the squares surrounding mines 
         {
-
-            for (int i = 0; i < Base; i++)
+            for (int i = 0; i < Height; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < Base; j++)
                 {
                     if (BoardSquares[i, j].IsMine == false)
                     {
-                        if (!(i == Base - 1 || j == Height - 1))//top right
+                        if (!(i == 0) || !(j == Base))//top right
                         {
                             if (BoardSquares[i + 1, j + 1].IsMine == true)
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(j == 0 || i == Base - 1))//bottom right
+                        else if (!(j == 0))//top left
                         {
                             if (BoardSquares[i + 1, j - 1].IsMine == true)
                             {
@@ -112,14 +116,14 @@ namespace GameCode
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(i == 0))//left
+                        else if (!(j == 0))//left
                         {
                             if (BoardSquares[i - 1, j].IsMine == true)
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(i == 0 || j == 0))//bottom left
+                        else if (!(i == Height) || !(j == 0))//bottom left
                         {
                             if (BoardSquares[i - 1, j - 1].IsMine == true)
                             {
@@ -135,6 +139,7 @@ namespace GameCode
                         }
                         BoardSquares[i, j].SquareVal = Convert.ToString(BoardSquares[i, j].AdjacentMines);
                     }
+
                 }
 
             }
@@ -143,18 +148,16 @@ namespace GameCode
         }
         public void DisplayBoard()
         {
-            for (int i = 0; i < Base; i++)
+            for (int i = 0; i < Height; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < Base; j++)
                 {
-                    Console.Write($"{BoardSquares[i, j].SquareVal}");
+                    Console.Write(BoardSquares[i, j].SquareVal);
                 }
                 Console.WriteLine();
             }
 
         }
-
-
-
     }
+
 }

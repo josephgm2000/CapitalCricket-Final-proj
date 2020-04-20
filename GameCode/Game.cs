@@ -6,7 +6,7 @@ namespace GameCode
 {
     class Game
     {
-        private bool IsGameOver = false;
+        //private bool IsGameOver = false;
         public Game()
         {
 
