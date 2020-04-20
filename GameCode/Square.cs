@@ -18,34 +18,24 @@ namespace GameCode
         public bool IsRevealed { get; set; }
         public bool IsClicked { get; set; }
         public int AdjacentMines { get; set; }
+
         public string SquareVal { get; set; }
         private static Random reshuffle = new Random();
-        public Square(int sizeX, int SizeY, int totalMines)
+        public Square(int sizeX, int SizeY)
         {
             this.SizeX = sizeX;
             this.SizeY = SizeY;
-            CreateMines(totalMines);
-            SetLocations();
-        }
-        public void CreateMines(int mines)
-        {
-            double rnd = reshuffle.Next(0, 1);
-            int count = 0;
-            if (count < mines)
-            {
-                if (rnd <= .10)
-                {
-                    count++;
-                    IsMine = true;
-                    SquareVal = "*";
-                }
-                else
-                {
-                    IsMine = false;
-                    SquareVal = Convert.ToString(AdjacentMines);
-                }
-            }
+            IsMine = true;
             
+            
+
+        }
+        public void CreateMines()
+        {
+            if (IsMine == true)
+            {
+                SquareVal = "*";
+            }
         }
         public void SetLocations()
         {
@@ -87,6 +77,6 @@ namespace GameCode
             }
 
         }
-        
+
     }
 }

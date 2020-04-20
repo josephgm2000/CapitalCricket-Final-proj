@@ -22,6 +22,7 @@ namespace GameCode
         private void InitializeGame()
         {
             Board board = new Board();
+            board.AdjacentMines();
             board.DisplayBoard();
  
         }
