@@ -61,7 +61,7 @@ namespace GameCode
                 for (int j = 0; j < Base; j++)
                 {
                     BoardSquares[i, j].SetMine();
-                    while (count < TotalMines)
+                    if (count < TotalMines)
                     {
                         if (BoardSquares[i, j].IsMine == true)
                         {
@@ -81,63 +81,115 @@ namespace GameCode
                 {
                     if (BoardSquares[i, j].IsMine == false)
                     {
-                        if (!(i == 0) || !(j == Base))//top right
+                        if (!(i == 0) && j > 0 && j < Base - 1) // Top Border
                         {
-                            if (BoardSquares[i + 1, j + 1].IsMine == true)
+                            if (BoardSquares[i - 1, j - 1].IsMine == true) // top left 
+                            {
+                                BoardSquares[i, j].AdjacentMines++;
+                            }
+                            else if (BoardSquares[i - 1, j + 1].IsMine == true)// top right
+                            {
+                                BoardSquares[i, j].AdjacentMines++;
+                            }
+                            else if (BoardSquares[i - 1, j].IsMine == true) // top middle 
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(j == 0))//top left
+                        else if (!(j == 0) && i > 0) // Left Border
                         {
-                            if (BoardSquares[i + 1, j - 1].IsMine == true)
+                            if (BoardSquares[i + 1, j - 1].IsMine == true) // bottom left
+                            {
+                                BoardSquares[i, j].AdjacentMines++;
+                            }
+                            else if (BoardSquares[i - 1, j - 1].IsMine == true)//top left
+                            {
+                                BoardSquares[i, j].AdjacentMines++;
+                            }
+                            else if (BoardSquares[i, j - 1].IsMine == true)//left
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(j == Height - 1))//top
-                        {
-                            if (BoardSquares[i, j + 1].IsMine == true)
-                            {
-                                BoardSquares[i, j].AdjacentMines++;
-                            }
-                        }
-                        else if (!(j == 0))//bottom
-                        {
-                            if (BoardSquares[i, j - 1].IsMine == true)
-                            {
-                                BoardSquares[i, j].AdjacentMines++;
-                            }
-                        }
-                        else if (!(i == Base - 1))//right
+                        else if (!(i == Height) && i < Height - 1) // Bottom Border
                         {
                             if (BoardSquares[i + 1, j].IsMine == true)
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(j == 0))//left
+                        else if (!(j == Base) && i < Height) // Right Border
                         {
-                            if (BoardSquares[i - 1, j].IsMine == true)
+                            if (BoardSquares[i + 1, j + 1].IsMine == true)//bottom right
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
-                        }
-                        else if (!(i == Height) || !(j == 0))//bottom left
-                        {
-                            if (BoardSquares[i - 1, j - 1].IsMine == true)
+                            else if (BoardSquares[i - 1, j + 1].IsMine == true)//top right
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
-                        }
-                        else if (!(i == Base - 1 || j == 0))//top left
-                        {
-                            if (BoardSquares[i + 1, j - 1].IsMine == true)
+                            else if (BoardSquares[i, j + 1].IsMine == true)// right
                             {
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
                         BoardSquares[i, j].SquareVal = Convert.ToString(BoardSquares[i, j].AdjacentMines);
+                        //if (!(i == 0) || !(j == Base))//top right
+                        //{
+                        //    if (BoardSquares[i + 1, j + 1].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(j == 0))//top left
+                        //{
+                        //    if (BoardSquares[i + 1, j - 1].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(j == Height - 1))//top
+                        //{
+                        //    if (BoardSquares[i, j + 1].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(j == 0))//bottom
+                        //{
+                        //    if (BoardSquares[i, j - 1].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(i == Base - 1))//right
+                        //{
+                        //    if (BoardSquares[i + 1, j].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(j == 0))//left
+                        //{
+                        //    if (BoardSquares[i - 1, j].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(i == Height) || !(j == 0))//bottom left
+                        //{
+                        //    if (BoardSquares[i - 1, j - 1].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
+                        //else if (!(i == Base - 1 || j == 0))//top left
+                        //{
+                        //    if (BoardSquares[i + 1, j - 1].IsMine == true)
+                        //    {
+                        //        BoardSquares[i, j].AdjacentMines++;
+                        //    }
+                        //}
                     }
 
                 }

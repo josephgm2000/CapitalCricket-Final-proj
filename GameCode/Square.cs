@@ -30,7 +30,7 @@ namespace GameCode
         public void SetMine()
         {
             double rnd = reshuffle.NextDouble();
-            if (rnd <= .45)
+            if (rnd <= .30)
             {
                 IsMine = true;
                 SquareVal = "*";
