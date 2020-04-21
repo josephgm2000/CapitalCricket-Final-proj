@@ -78,7 +78,21 @@ namespace GameCode
 
         private int CalculateAdjacentMines(int row, int col)
         {
-            return 0;
+            int mines = 0;
+            for (int i = row - 1; i < row + 1; i++)
+            {
+                for (int j = col - 1; j < col + 1; j++)
+                {
+                    if (i > 0 && j > 00 && i < Height && j < Base && (i != row && j != col))
+                    {
+                        if (BoardSquares[i, j].IsMine)
+                        {
+                            mines++;
+                        }
+                    }
+                }
+            }
+            return mines;
         }
 
         public void AdjacentMines() // Method to display the numbers on the squares surrounding mines 
