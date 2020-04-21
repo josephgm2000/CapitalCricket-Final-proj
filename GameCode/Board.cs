@@ -52,6 +52,7 @@ namespace GameCode
                 for (int j = 0; j < Base; j++)
                 {
                     BoardSquares[i, j] = new Square(Base, Height);
+
                 }
 
             }
@@ -66,6 +67,7 @@ namespace GameCode
                         if (BoardSquares[i, j].IsMine == true)
                         {
                             count++;
+                           
                         }
                     }
                 }
@@ -96,7 +98,7 @@ namespace GameCode
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(j == 0) && i > 0) // Left Border
+                        else if (!(j == 0) && i > 0 && i < Height - 1) // Left Border
                         {
                             if (BoardSquares[i + 1, j - 1].IsMine == true) // bottom left
                             {
@@ -118,7 +120,7 @@ namespace GameCode
                                 BoardSquares[i, j].AdjacentMines++;
                             }
                         }
-                        else if (!(j == Base) && i < Height) // Right Border
+                        else if (!(j == Base) && i < Height - 1) // Right Border
                         {
                             if (BoardSquares[i + 1, j + 1].IsMine == true)//bottom right
                             {
