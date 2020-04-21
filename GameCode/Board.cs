@@ -83,7 +83,7 @@ namespace GameCode
             {
                 for (int j = col - 1; j < col + 1; j++)
                 {
-                    if (i > 0 && j > 00 && i < Height && j < Base && (i != row && j != col))
+                    if (i >= 0 || j >= 0 || i < Height || j < Base || (i != row && j != col))
                     {
                         if (BoardSquares[i, j].IsMine)
                         {
