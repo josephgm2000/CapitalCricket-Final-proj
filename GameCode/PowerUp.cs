@@ -1,51 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace GameCode
 {
-    public class PowerUp 
+    public class PowerUp : Board
     {
-        public int MinesFlagged { get; set; }
-        public PowerUp(int minesFlagged)
+
+        public PowerUp()
         {
 
         }
-        public void GoldenDome(TimeSpan time)
+        public void GoldenDome(int row, int col)
         {
-            if (MinesFlagged == .75)
-            {
-                List<Square> mineList = new List<Square>();  
-                time = TimeSpan.FromSeconds(45);
-                for (int i = 0; i < 6; i++)
-                {
-
-                }
-                while (!(time == TimeSpan.FromSeconds(0)))
-                {
-                    
-                    
-                }
-            }
+            BoardSquares[row, col].IsMine = false;
+            TotalMines--;
         }
-
         public void FogOfWar()
         {
-            if (MinesFlagged == .50)
+            List<int> rows = new List<int>();
+            List<int> columns = new List<int>();
+            for (int i = 0; i < Height; i++)
             {
-
+                for (int j = 0; j < Base; j++)
+                {
+                    if (BoardSquares[j, i].IsMine)
+                    {
+                        rows.Add(j);
+                        columns.Add(i);
+                    }
+                }
             }
-        
-        
 
+            int count = 2;
+            foreach (var r in rows)
+            {
+                foreach (var c in columns)
+                {
+                    if (count > 0)
+                    {
+                        BoardSquares[r, c].IsFlagged = true;
+                        count--;
+                    }
+                }
+            }
 
         }
-           
-
-
-
-
-
-
     }
 }

@@ -9,7 +9,7 @@ namespace GameCode
         Easy = 0, Medium = 1, Hard = 2
     }
 
-    class Board
+    public class Board
     {
         public Square[,] BoardSquares { get; set; }
 
@@ -145,7 +145,7 @@ namespace GameCode
             }
             foreach (var r in rows)
             {
-                foreach(var c in cols)
+                foreach(var c in columns)
                 {
                     if(count > 0)
                     {
