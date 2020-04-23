@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using EO.Internal;
 
-namespace GameCode
+
+namespace G5_Minesweeper
 {
     class Player
     {
@@ -50,7 +50,7 @@ namespace GameCode
         //}
 
 
-
+        
         //if (Player 1.squareVal > Player2.squareVal)
         //{
         //    string[] lines = {"Player 1 time," "Player 2 time" };

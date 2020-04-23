@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace GameCode
+namespace G5_Minesweeper
 {
     public class PowerUp : Board
     {
@@ -33,7 +33,7 @@ namespace GameCode
                 }
             }
 
-                        int count = 2;
+            int count = 2;
             foreach (var r in rows)
             {
                 foreach (var c in columns)

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCode", "GameCode\GameCode.csproj", "{6FCFB3C8-7FAD-4AC1-8C6A-58C9C31C5D3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCode", "GameCode\GameCode.csproj", "{6FCFB3C8-7FAD-4AC1-8C6A-58C9C31C5D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G5-Minesweeper", "G5-Minesweeper\G5-Minesweeper.csproj", "{3DCAD1B7-61B1-4AA1-81ED-55AA024758AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6FCFB3C8-7FAD-4AC1-8C6A-58C9C31C5D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FCFB3C8-7FAD-4AC1-8C6A-58C9C31C5D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FCFB3C8-7FAD-4AC1-8C6A-58C9C31C5D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DCAD1B7-61B1-4AA1-81ED-55AA024758AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCAD1B7-61B1-4AA1-81ED-55AA024758AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DCAD1B7-61B1-4AA1-81ED-55AA024758AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCAD1B7-61B1-4AA1-81ED-55AA024758AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
