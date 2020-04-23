@@ -67,7 +67,7 @@ namespace GameCode
                         if (BoardSquares[i, j].IsMine == true)
                         {
                             count++;
-                           
+
                         }
                     }
                 }
@@ -104,8 +104,53 @@ namespace GameCode
                     if (BoardSquares[i, j].IsMine == false)
                     {
                         BoardSquares[i, j].AdjacentMines = CalculateAdjacentMines(i, j);
-                        
-                        BoardSquares[i, j].SquareVal = Convert.ToString(BoardSquares[i, j].AdjacentMines);                      
+
+                        BoardSquares[i, j].SquareVal = Convert.ToString(BoardSquares[i, j].AdjacentMines);
+                    }
+                }
+            }
+        }
+
+        public void FirstClick(int row, int col)
+        {
+            int count = 0;
+            List<int> rows = new List<int>();
+            List<int> columns = new List<int>();
+
+            for (int i = row - 1; i <= row + 1; i++)
+            {
+                for (int j = col - 1; j <= col + 1; j++)
+                {
+                    if (i >= 0 && j >= 0 && i < Height && j < Base)
+                    {
+                        if (BoardSquares[i, j].IsMine)
+                        {
+                            BoardSquares[i, j].IsMine = false;
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Base; j++)
+                {
+                    if (BoardSquares[i, j].IsMine == false)
+                    {
+                        rows.Add(j);
+                        columns.Add(i);                    
+                    }                   
+                }
+            }
+            foreach (var r in rows)
+            {
+                foreach(var c in cols)
+                {
+                    if(count > 0)
+                    {
+                        BoardSquares[r,c].IsMine = true;
+                        count--;
                     }
                 }
             }
@@ -120,8 +165,22 @@ namespace GameCode
                 }
                 Console.WriteLine();
             }
-
         }
-    }
 
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
