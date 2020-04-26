@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace G5_Minesweeper
 {
@@ -10,7 +11,7 @@ namespace G5_Minesweeper
         Easy = 0, Medium = 1, Hard = 2
     }
 
-    public class Board 
+    public class Board
     {
         public Square[,] BoardSquares { get; set; }
 
@@ -29,7 +30,7 @@ namespace G5_Minesweeper
 
 
 
-        public int Base // set difficulty here 
+        public int RWidth // set difficulty here 
         {
             get { return 7; }
 
@@ -38,7 +39,7 @@ namespace G5_Minesweeper
 
 
 
-        public int Height // set difficulty here 
+        public int CHeight // set difficulty here 
         {
             get { return 7; }
 
@@ -47,24 +48,32 @@ namespace G5_Minesweeper
 
         public Board()
         {
-            BoardSquares = new Square[Base, Height];
-            for (int i = 0; i < Base; i++)
+            BoardSquares = new Square[RWidth, CHeight];
+
+            for (int i = 0; i < RWidth; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < CHeight; j++)
                 {
-                    BoardSquares[i, j] = new Square
+
+                    BoardSquares[i, j] = new Square();
+                    if (!(j == 0))
                     {
-                        Top = i,
-                        Left = j
-                    };
+                        BoardSquares[i, j].Left = BoardSquares[i, j - 1].Left + 20;
+                    }
+                    if(!(i == 0))
+                    {
+                        BoardSquares[i, j].Top = BoardSquares[i - 1, j].Top + 20;
+                    }
+                   
                     
+
                 }
 
             }
             int count = 0;
-            for (int i = 0; i < Height; i++)
+            for (int i = 0; i < CHeight; i++)
             {
-                for (int j = 0; j < Base; j++)
+                for (int j = 0; j < RWidth; j++)
                 {
                     BoardSquares[i, j].SetMine();
                     if (count < TotalMines)
@@ -88,7 +97,7 @@ namespace G5_Minesweeper
             {
                 for (int j = col - 1; j <= col + 1; j++)
                 {
-                    if (i >= 0 && j >= 0 && i < Height && j < Base && !(i == row && j == col))
+                    if (i >= 0 && j >= 0 && i < CHeight && j < RWidth && !(i == row && j == col))
                     {
                         if (BoardSquares[i, j].IsMine)
                         {
@@ -102,15 +111,13 @@ namespace G5_Minesweeper
 
         public void AdjacentMines() // Method to display the numbers on the squares surrounding mines 
         {
-            for (int i = 0; i < Height; i++)
+            for (int i = 0; i < CHeight; i++)
             {
-                for (int j = 0; j < Base; j++)
+                for (int j = 0; j < RWidth; j++)
                 {
                     if (BoardSquares[i, j].IsMine == false)
                     {
-                        BoardSquares[i, j].AdjacentMines = CalculateAdjacentMines(i, j);
-
-                        BoardSquares[i, j].SquareVal = Convert.ToString(BoardSquares[i, j].AdjacentMines);
+                        BoardSquares[i, j].AdjacentMines = CalculateAdjacentMines(i, j);  
                     }
                 }
             }
@@ -126,7 +133,7 @@ namespace G5_Minesweeper
             {
                 for (int j = col - 1; j <= col + 1; j++)
                 {
-                    if (i >= 0 && j >= 0 && i < Height && j < Base)
+                    if (i >= 0 && j >= 0 && i < CHeight && j < RWidth)
                     {
                         if (BoardSquares[i, j].IsMine)
                         {
@@ -137,9 +144,9 @@ namespace G5_Minesweeper
                 }
             }
 
-            for (int i = 0; i < Height; i++)
+            for (int i = 0; i < CHeight; i++)
             {
-                for (int j = 0; j < Base; j++)
+                for (int j = 0; j < RWidth; j++)
                 {
                     if (BoardSquares[i, j].IsMine == false)
                     {
@@ -162,13 +169,7 @@ namespace G5_Minesweeper
         }
         public void DisplayBoard()
         {
-            for (int i = 0; i < Base; i++)
-            {
-                for (int j = 0; j < Height; j++)
-                {
-                    BoardSquares[i, j].Show();
-                }
-            }
+            
         }
 
     }

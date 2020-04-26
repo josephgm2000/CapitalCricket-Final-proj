@@ -13,30 +13,26 @@ namespace G5_Minesweeper
         public bool IsRevealed { get; set; }
         public bool IsClicked { get; set; }
         public int AdjacentMines { get; set; }
-
-        public string SquareVal { get; set; }
         private static Random reshuffle = new Random();
-        public Square(int param)
-        {
+        public Square()
+        {   
             IsMine = false;
             IsClicked = false;
             IsRevealed = false;
+            Top = 0;
+            Left = 0;
             Image = Properties.Resources.square;
             Size = new System.Drawing.Size(20, 20);
-            SizeMode = PictureBoxSizeMode.StretchImage; 
+            SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        public Square()
-        {
-            Square square = new Square(5);
-            Controls.Add(square);
-        }
+
         public void SetMine()
         {
             double rnd = reshuffle.NextDouble();
             if (rnd <= .30)
             {
                 IsMine = true;
-                SquareVal = "*";
+               
             }
 
         }
@@ -58,7 +54,7 @@ namespace G5_Minesweeper
         {
             if (e.Button == MouseButtons.Left)
             {
-                if(IsMine == true)
+                if (IsMine == true)
                 {
                     Image = Properties.Resources.bomb;
                     IsClicked = true;
@@ -67,23 +63,23 @@ namespace G5_Minesweeper
                 else
                 {
                     IsRevealed = true;
-                    if(AdjacentMines == 1)
+                    if (AdjacentMines == 1)
                     {
                         Image = Properties.Resources.one;
                     }
-                    else if(AdjacentMines == 2)
+                    else if (AdjacentMines == 2)
                     {
                         Image = Properties.Resources.two;
                     }
-                    else if(AdjacentMines == 3)
+                    else if (AdjacentMines == 3)
                     {
                         Image = Properties.Resources.three;
                     }
-                    else if(AdjacentMines == 4)
+                    else if (AdjacentMines == 4)
                     {
                         Image = Properties.Resources.four;
                     }
-                    else if(AdjacentMines == 5)
+                    else if (AdjacentMines == 5)
                     {
                         Image = Properties.Resources._5;
                     }
@@ -91,15 +87,15 @@ namespace G5_Minesweeper
                     {
                         Image = Properties.Resources.six;
                     }
-                    else if(AdjacentMines == 7)
+                    else if (AdjacentMines == 7)
                     {
                         Image = Properties.Resources.seven;
                     }
-                    else if(AdjacentMines == 8)
+                    else if (AdjacentMines == 8)
                     {
                         Image = Properties.Resources.eight;
                     }
-                    else if(AdjacentMines == 0)
+                    else if (AdjacentMines == 0)
                     {
                         Image = Properties.Resources.blank;
                     }
@@ -113,7 +109,7 @@ namespace G5_Minesweeper
             }
         }
 
-        
+
 
     }
 }

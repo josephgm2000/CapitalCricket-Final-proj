@@ -21,9 +21,9 @@ namespace G5_Minesweeper
         {
             List<int> rows = new List<int>();
             List<int> columns = new List<int>();
-            for (int i = 0; i < Height; i++)
+            for (int i = 0; i < CHeight; i++)
             {
-                for (int j = 0; j < Base; j++)
+                for (int j = 0; j < RWidth; j++)
                 {
                     if (BoardSquares[j, i].IsMine)
                     {
