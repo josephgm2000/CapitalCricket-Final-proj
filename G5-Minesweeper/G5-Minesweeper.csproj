@@ -128,5 +128,23 @@
   <ItemGroup>
     <None Include="Resources\blank.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\death.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\endgame.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\song.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laser.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

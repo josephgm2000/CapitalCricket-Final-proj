@@ -15,7 +15,7 @@ namespace G5_Minesweeper
         public int AdjacentMines { get; set; }
         private static Random reshuffle = new Random();
         public Square()
-        {   
+        {
             IsMine = false;
             IsClicked = false;
             IsRevealed = false;
@@ -32,7 +32,7 @@ namespace G5_Minesweeper
             if (rnd <= .30)
             {
                 IsMine = true;
-               
+
             }
 
         }
@@ -57,59 +57,69 @@ namespace G5_Minesweeper
                 if (IsMine == true)
                 {
                     Image = Properties.Resources.bomb;
+                    this.Refresh();
                     IsClicked = true;
                     IsRevealed = true;
+                   
                 }
                 else
                 {
                     IsRevealed = true;
+                    IsClicked = true;
                     if (AdjacentMines == 1)
                     {
                         Image = Properties.Resources.one;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 2)
                     {
                         Image = Properties.Resources.two;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 3)
                     {
                         Image = Properties.Resources.three;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 4)
                     {
                         Image = Properties.Resources.four;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 5)
                     {
                         Image = Properties.Resources._5;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 6)
                     {
                         Image = Properties.Resources.six;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 7)
                     {
                         Image = Properties.Resources.seven;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 8)
                     {
                         Image = Properties.Resources.eight;
+                        this.Refresh();
                     }
                     else if (AdjacentMines == 0)
                     {
                         Image = Properties.Resources.blank;
+                        this.Refresh();
                     }
                 }
             }
             if (e.Button == MouseButtons.Right)
             {
                 Image = Properties.Resources.flag;
+                this.Refresh();
                 IsClicked = true;
                 IsFlagged = true;
             }
         }
-
-
-
     }
 }

@@ -36,6 +36,11 @@ namespace G5_Minesweeper
 
                 }
             }
+            var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
+            if(beginGame == DialogResult.OK)
+            {
+                GameTimer.Enabled = true;
+            }
 
 
 
@@ -51,9 +56,7 @@ namespace G5_Minesweeper
                 {
                     FirstClick = true;
                 }
-
-
-            }
+            }   
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
@@ -78,6 +81,41 @@ namespace G5_Minesweeper
                         }
                     }
 
+                }
+            }
+            foreach(var square in Squares)
+            {
+                if (square.IsClicked == true && square.IsMine == true)
+                {
+                    var gameOver = MessageBox.Show("Game over :(", "To Play Again click Yes, To close the game click No", MessageBoxButtons.YesNo);
+                    if(gameOver == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < Board.CHeight; i++)
+                        {
+                            for (int j = 0; j < Board.RWidth; j++)
+                            {
+                                Controls.Remove(Board.BoardSquares[i, j]);
+                                Squares.Remove(Board.BoardSquares[i, j]);
+
+                            }
+                        } 
+                        FirstClick = false;
+                        Board = new Board();
+                        Board.AdjacentMines();
+                        for (int i = 0; i < Board.CHeight; i++)
+                        {
+                            for (int j = 0; j < Board.RWidth; j++)
+                            {
+                                Controls.Add(Board.BoardSquares[i, j]);
+                                Squares.Add(Board.BoardSquares[i, j]);
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                 }
             }
 

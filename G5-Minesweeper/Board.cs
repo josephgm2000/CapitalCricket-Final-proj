@@ -32,7 +32,7 @@ namespace G5_Minesweeper
 
         public int RWidth // set difficulty here 
         {
-            get { return 7; }
+            get { return 10; }
 
         }
 
@@ -41,7 +41,7 @@ namespace G5_Minesweeper
 
         public int CHeight // set difficulty here 
         {
-            get { return 7; }
+            get { return 10; }
 
         }
 
@@ -167,11 +167,6 @@ namespace G5_Minesweeper
                 }
             }
         }
-        public void DisplayBoard()
-        {
-            
-        }
-
     }
 }
 
