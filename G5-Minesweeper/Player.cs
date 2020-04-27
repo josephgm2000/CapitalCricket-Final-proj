@@ -15,39 +15,46 @@ namespace G5_Minesweeper
             FirstName = firstName;
             LastName = lastName;
         }
-        //string fileName = @"file name";
+        
+        // string fileName = @"C:Temp/LukeShafferTX.txt";
+        // example file name above
 
-        //try
-        //{
-        //    // checking if file already exists and if yes, deletes it
-        //    if  (File.Exists(fileName))
-        //    {
-        //        File.Delete(fileName);
-        //    }
+        try
+        {
+              // checking if file already exists and if yes, deletes it
+              if  (File.Exists("player.txt"))
+              {
+                  File.Delete("player.txt");
+              }
 
-        //    // creates a new file
-        //    using (StreamWriter sw = File.CreateText(fileName))
-        //    {
-        //        sw.WriteLine("You win!");
-        //        sw.WriteLine("{Length of time to win}");
-        //        //establish length of time to win variable first
-        //    }
+              // creates a new file
+              using (StreamWriter sw = File.CreateText("player.txt"))
+              {
+                  sw.WriteLine("New file created: {0}", DateTime.Now.ToString());
+                  sw.WriteLine("Author: Luke Shaffer");
+                  sw.WriteLine("You win!");
+                  // sw.WriteLine("{Length of time to win}");
+              }
 
-        //    // writes file contents on console
-        //    using (StreamReader sr = File.OpenText(fileName))
-        //    {
-        //        string f = "";
-        //        while ((s = sr.ReadLine()) != null)
-        //        {
-        //            Console.WriteLine(f);
-        //        }
-        //    }
+              // writes file contents on console
+              using (StreamReader sr = File.OpenText("player.txt"))
+              {
+                  string f = "";
+                  while ((f = sr.ReadLine()) != null)
+                  {
+                      Console.WriteLine(f);
+                  }
+              }
+            Console.WriteLine(f);
+        }
 
-
-        //catch (Exception Ex)
-        //{
-        //    Console.WriteLine(Ex.ToString());
-        //}
+        catch (Exception Ex)
+        {
+            // handles exception
+            Console.WriteLine("No text can be displayed.");
+        }
+        
+        Console.ReadKey();
 
 
         
