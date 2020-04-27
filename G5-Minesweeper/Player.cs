@@ -16,7 +16,7 @@ namespace G5_Minesweeper
             LastName = lastName;
         }
         
-        string fileName = @"C:Temp/LukeShafferTX.txt";
+        // string fileName = @"C:Temp/LukeShafferTX.txt";
         // example file name above
 
         try
