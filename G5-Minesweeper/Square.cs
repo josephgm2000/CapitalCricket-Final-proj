@@ -19,11 +19,13 @@ namespace G5_Minesweeper
             IsMine = false;
             IsClicked = false;
             IsRevealed = false;
+            IsFlagged = false;
             Top = 0;
             Left = 0;
             Image = Properties.Resources.square;
             Size = new System.Drawing.Size(20, 20);
             SizeMode = PictureBoxSizeMode.StretchImage;
+            InitializeComponent();
         }
 
         public void SetMine()
@@ -56,11 +58,10 @@ namespace G5_Minesweeper
             {
                 if (IsMine == true)
                 {
-                    Image = Properties.Resources.bomb;
-                    this.Refresh();
                     IsClicked = true;
-                    IsRevealed = true;
-                   
+                    IsRevealed = false;
+                    Image = Properties.Resources.bomb;
+
                 }
                 else
                 {
@@ -113,11 +114,20 @@ namespace G5_Minesweeper
                     }
                 }
             }
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right && IsFlagged == true)
+            {
+                
+                Image = Properties.Resources.square;
+                this.Refresh();
+                IsClicked = false;
+                IsRevealed = false;
+            }
+            else if (e.Button == MouseButtons.Right)
             {
                 Image = Properties.Resources.flag;
                 this.Refresh();
-                IsClicked = true;
+                IsClicked = false;
+                IsRevealed = false;
                 IsFlagged = true;
             }
         }

@@ -166,6 +166,7 @@ namespace G5_Minesweeper
                     }
                 }
             }
+            AdjacentMines();
         }
     }
 }

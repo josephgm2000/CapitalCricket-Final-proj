@@ -35,6 +35,7 @@
             // 
             // GameTimer
             // 
+            this.GameTimer.Interval = 10;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
             // Game
@@ -47,7 +48,6 @@
             this.Name = "Game";
             this.Text = "Dr. D\'s Sweeper";
             this.Load += new System.EventHandler(this.Game_Load);
-            this.Click += new System.EventHandler(this.Game_Click);
             this.ResumeLayout(false);
 
         }
