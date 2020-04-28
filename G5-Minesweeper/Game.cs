@@ -19,6 +19,9 @@ namespace G5_Minesweeper
         private PowerUp PowerUps = new PowerUp();
         private Board Board;
         private bool FirstClick = false;
+        private int ClickX;
+        private int ClickY;
+        private int WinGame;
         
         public Game()
         {
@@ -39,6 +42,7 @@ namespace G5_Minesweeper
                     Squares.Add(Board.BoardSquares[i, j]);
                 }
             }
+            WinGame = (Board.CHeight * Board.RWidth) - Board.TotalMines;
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
             var startUp = new SoundPlayer(Properties.Resources.song);
             startUp.Play();
@@ -55,23 +59,45 @@ namespace G5_Minesweeper
             var firstClick = from square in Squares
                              where square.IsClicked == true
                              select square;
-            var winGame = from square in Squares
-                          where square.IsRevealed == true
-                          select square;
+            var gameOver = from square in Squares
+                           where square.IsClicked && square.IsMine && square.IsRevealed
+                           select square;
+            var mines = from square in Squares
+                        where square.IsMine
+                        select square;
             var minesFlagged = from square in Squares
                                where square.IsFlagged == true && square.IsMine == true
                                select square;
+            var clickedSquares = from square in Squares
+                                 where square.IsClicked
+                                 select square;
+            clickedSquares.ToList();
             minesFlagged.ToList();
-            winGame.ToList();
-            if (winGame.Count() == ((Board.CHeight * Board.RWidth) - Board.TotalMines) && minesFlagged.Count() == Board.TotalMines)
+            if(clickedSquares.Count() == WinGame && minesFlagged.Count() == Board.TotalMines)
             {
-                GameTimer.Enabled = false;
-                var gameWon = MessageBox.Show("You Won! :)", "Press OK to Exit", MessageBoxButtons.OK);
-                if (gameWon == DialogResult.OK)
+                var youWon = MessageBox.Show("You Won! :)", "Click OK to exit the game", MessageBoxButtons.OK);
+                if(youWon == DialogResult.OK)
                 {
                     this.Close();
                 }
             }
+            foreach (var square in gameOver)
+            {
+                foreach (var mine in mines)
+                {
+                    mine.IsRevealed = true;
+                    mine.SetImage();
+                }
+                GameTimer.Interval = 30000;
+                var overBox = MessageBox.Show("Game Over :(", "Click OK to exit the game", MessageBoxButtons.OK);
+                if(overBox == DialogResult.OK)
+                {
+                    
+                    this.Close();
+                }
+            }
+
+           
             int clickCount = 0;
             foreach (var square in firstClick)
             {
@@ -97,6 +123,13 @@ namespace G5_Minesweeper
                         {
                             if (Board.BoardSquares[i, j].Top == square.Top && Board.BoardSquares[i, j].Left == square.Left)
                             {
+                                if(Board.BoardSquares[i,j].IsMine == true)
+                                {
+                                    Board.BoardSquares[i, j].IsMine = false;
+                                    Board.TotalMines--;
+                                    Board.AdjacentMines();
+                                    Board.BoardSquares[i, j].SetImage();
+                                }
                                 Board.FirstClick(j, i);
                                 Board.AdjacentMines();
                                 Board.BoardSquares[i, j].Refresh();
@@ -110,6 +143,9 @@ namespace G5_Minesweeper
 
         }
 
+        private void Game_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

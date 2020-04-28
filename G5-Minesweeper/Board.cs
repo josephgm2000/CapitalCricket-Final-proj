@@ -6,16 +6,11 @@ using System.Linq;
 
 namespace G5_Minesweeper
 {
-    public enum Difficulty
-    {
-        Easy = 0, Medium = 1, Hard = 2
-    }
-
     public class Board
     {
         public Square[,] BoardSquares { get; set; }
 
-        private int totalMines = 30;
+        private int totalMines;
         public int TotalMines
         {
             get
@@ -27,27 +22,46 @@ namespace G5_Minesweeper
                 totalMines = value;
             }
         }
+        private int rWidth;
 
-
-
-        public int RWidth // set difficulty here 
+        public int RWidth
         {
-            get { return 10; }
-
+            get { return rWidth; }
+            set { rWidth = value; }
         }
+        private int cHeight;
 
-
-
-
-        public int CHeight // set difficulty here 
+        public int CHeight
         {
-            get { return 10; }
-
+            get { return cHeight; }
+            set { cHeight = value; }
         }
-
 
         public Board()
         {
+            var difficulty = MessageBox.Show("Click Yes if you want to play on Easy mode, Click No to see other options", "Please choose a difficulty level", MessageBoxButtons.YesNo);
+            if (difficulty == DialogResult.Yes)
+            {
+                RWidth = 7;
+                CHeight = 7;
+                TotalMines = 15;
+            }
+            else
+            {
+                var medium = MessageBox.Show("Click Yes to play on Medium mode, Click No to play on Hard mode", "Please choose a difficulty level", MessageBoxButtons.YesNo);
+                if (medium == DialogResult.Yes)
+                {
+                    RWidth = 9;
+                    CHeight = 9;
+                    TotalMines = 30;
+                }
+                else
+                {
+                    RWidth = 11;
+                    CHeight = 11;
+                    TotalMines = 65;
+                }
+            }
             BoardSquares = new Square[RWidth, CHeight];
 
             for (int i = 0; i < RWidth; i++)
@@ -60,13 +74,10 @@ namespace G5_Minesweeper
                     {
                         BoardSquares[i, j].Left = BoardSquares[i, j - 1].Left + 20;
                     }
-                    if(!(i == 0))
+                    if (!(i == 0))
                     {
                         BoardSquares[i, j].Top = BoardSquares[i - 1, j].Top + 20;
                     }
-                   
-                    
-
                 }
 
             }
@@ -78,21 +89,19 @@ namespace G5_Minesweeper
                     BoardSquares[i, j].SetMine();
                     if (count < TotalMines)
                     {
-                        if (BoardSquares[i, j].IsMine == false)
+                        BoardSquares[i, j].SetMine();
+                        if (BoardSquares[i, j].IsMine == true)
                         {
-                            BoardSquares[i, j].SetMine();
-                            if (BoardSquares[i,j].IsMine == true)
-                            {
-                                count++;
-                            }
-                           
-
+                            count++;
                         }
-                        
                     }
+                    else
+                    {
+                        BoardSquares[i, j].IsMine = false;
+                    }
+
                 }
             }
-
         }
 
 
@@ -123,7 +132,7 @@ namespace G5_Minesweeper
                 {
                     if (BoardSquares[i, j].IsMine == false)
                     {
-                        BoardSquares[i, j].AdjacentMines = CalculateAdjacentMines(i, j);  
+                        BoardSquares[i, j].AdjacentMines = CalculateAdjacentMines(i, j);
                     }
                 }
             }
@@ -145,6 +154,8 @@ namespace G5_Minesweeper
                         {
                             BoardSquares[i, j].IsMine = false;
                             count++;
+                            AdjacentMines();
+                            BoardSquares[i, j].Refresh();
                             BoardSquares[i, j].IsRevealed = true;
                             BoardSquares[i, j].SetImage();
                         }
@@ -174,7 +185,7 @@ namespace G5_Minesweeper
                     }
                 }
             }
-            
+
         }
     }
 }

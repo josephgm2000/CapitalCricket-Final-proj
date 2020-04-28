@@ -41,6 +41,7 @@ namespace G5_Minesweeper
                     if (count > 0)
                     {
                         BoardSquares[r, c].IsFlagged = true;
+                        BoardSquares[r, c].SetImage();
                         count--;
                     }
                 }

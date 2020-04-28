@@ -31,7 +31,7 @@ namespace G5_Minesweeper
         public void SetMine()
         {
             double rnd = reshuffle.NextDouble();
-            if (rnd <= .26)
+            if (rnd <= .30)
             {
                 IsMine = true;
 
@@ -99,6 +99,12 @@ namespace G5_Minesweeper
                 }
             }
 
+            if (IsFlagged)
+            {
+                Image = Properties.Resources.flag;
+                this.Refresh();
+            }
+
         }
 
         private void InitializeComponent()
@@ -122,22 +128,27 @@ namespace G5_Minesweeper
                 IsRevealed = true;
                 SetImage();
             }
-            if (e.Button == MouseButtons.Right && IsFlagged == true)
+            if (e.Button == MouseButtons.Right)
             {
+                if (IsFlagged == false)
+                {
+                    IsFlagged = true;
+                    IsClicked = true;
+                    IsRevealed = false;
+                    Image = Properties.Resources.flag;
+                    this.Refresh();
+                }
+                else
+                {
+                    IsFlagged = false;
+                    IsClicked = false;
+                    IsRevealed = false;
+                    Image = Properties.Resources.square;
+                    this.Refresh();
+                }
 
-                Image = Properties.Resources.square;
-                this.Refresh();
-                IsClicked = false;
-                IsRevealed = false;
             }
-            else if (e.Button == MouseButtons.Right && IsRevealed == false)
-            {
-                Image = Properties.Resources.flag;
-                this.Refresh();
-                IsClicked = false;
-                IsRevealed = false;
-                IsFlagged = true;
-            }
+
         }
     }
 }
