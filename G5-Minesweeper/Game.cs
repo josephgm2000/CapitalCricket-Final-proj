@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,6 +40,8 @@ namespace G5_Minesweeper
                 }
             }
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
+            var startUp = new SoundPlayer(Properties.Resources.song);
+            startUp.Play();
             if (beginGame == DialogResult.OK)
             {
                 GameTimer.Enabled = true;
