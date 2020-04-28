@@ -18,7 +18,7 @@ namespace G5_Minesweeper
         private PowerUp PowerUps = new PowerUp();
         private Board Board;
         private bool FirstClick = false;
-        private bool MessageBoxShow;
+        
         public Game()
         {
             InitializeComponent();
@@ -28,7 +28,6 @@ namespace G5_Minesweeper
         private void Game_Load(object sender, EventArgs e)
         {
             FirstClick = false;
-            MessageBoxShow = false;
             Board = new Board();
             Board.AdjacentMines();
             for (int i = 0; i < Board.CHeight; i++)
@@ -37,8 +36,6 @@ namespace G5_Minesweeper
                 {
                     Controls.Add(Board.BoardSquares[i, j]);
                     Squares.Add(Board.BoardSquares[i, j]);
-
-
                 }
             }
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
@@ -46,9 +43,6 @@ namespace G5_Minesweeper
             {
                 GameTimer.Enabled = true;
             }
-
-
-
         }
 
 
@@ -58,32 +52,38 @@ namespace G5_Minesweeper
             var firstClick = from square in Squares
                              where square.IsClicked == true
                              select square;
-            int count = 0;
+            var winGame = from square in Squares
+                          where square.IsRevealed == true
+                          select square;
+            var minesFlagged = from square in Squares
+                               where square.IsFlagged == true && square.IsMine == true
+                               select square;
+            minesFlagged.ToList();
+            winGame.ToList();
+            if (winGame.Count() == ((Board.CHeight * Board.RWidth) - Board.TotalMines) && minesFlagged.Count() == Board.TotalMines)
+            {
+                GameTimer.Enabled = false;
+                var gameWon = MessageBox.Show("You Won! :)", "Press OK to Exit", MessageBoxButtons.OK);
+                if (gameWon == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            int clickCount = 0;
             foreach (var square in firstClick)
             {
-                count++;
-                if (count == 1)
+                clickCount++;
+                if (clickCount == 1)
                 {
                     FirstClick = true;
                 }
-            }
-            firstClick.ToList();
-            for (int i = 0; i < Squares.Count; i++)
-            {
-                if (Squares[i].IsClicked == true && Squares[i].IsMine == true)
-                {
-                    var gameOver = MessageBox.Show("Game over :(", "Click OK to Exit", MessageBoxButtons.OK);
-                    MessageBoxShow = false;
-                    if (gameOver == DialogResult.OK)
-                    {
-                        this.Close();
-                    }
-                }
                 else
                 {
-                    MessageBoxShow = false;
+                    FirstClick = false;
                 }
             }
+
+
             for (int i = 0; i < Board.CHeight; i++)
             {
                 for (int j = 0; j < Board.RWidth; j++)
@@ -95,6 +95,8 @@ namespace G5_Minesweeper
                             if (Board.BoardSquares[i, j].Top == square.Top && Board.BoardSquares[i, j].Left == square.Left)
                             {
                                 Board.FirstClick(j, i);
+                                Board.AdjacentMines();
+                                Board.BoardSquares[i, j].Refresh();
                             }
                         }
                     }

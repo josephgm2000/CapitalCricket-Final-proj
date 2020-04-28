@@ -15,7 +15,7 @@ namespace G5_Minesweeper
     {
         public Square[,] BoardSquares { get; set; }
 
-        private int totalMines = 20;
+        private int totalMines = 30;
         public int TotalMines
         {
             get
@@ -78,11 +78,17 @@ namespace G5_Minesweeper
                     BoardSquares[i, j].SetMine();
                     if (count < TotalMines)
                     {
-                        if (BoardSquares[i, j].IsMine == true)
+                        if (BoardSquares[i, j].IsMine == false)
                         {
-                            count++;
+                            BoardSquares[i, j].SetMine();
+                            if (BoardSquares[i,j].IsMine == true)
+                            {
+                                count++;
+                            }
+                           
 
                         }
+                        
                     }
                 }
             }
@@ -139,6 +145,8 @@ namespace G5_Minesweeper
                         {
                             BoardSquares[i, j].IsMine = false;
                             count++;
+                            BoardSquares[i, j].IsRevealed = true;
+                            BoardSquares[i, j].SetImage();
                         }
                     }
                 }
@@ -166,7 +174,7 @@ namespace G5_Minesweeper
                     }
                 }
             }
-            AdjacentMines();
+            
         }
     }
 }

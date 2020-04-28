@@ -31,42 +31,26 @@ namespace G5_Minesweeper
         public void SetMine()
         {
             double rnd = reshuffle.NextDouble();
-            if (rnd <= .30)
+            if (rnd <= .26)
             {
                 IsMine = true;
 
             }
 
         }
-
-        private void InitializeComponent()
+        public void SetImage()
         {
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // Square
-            // 
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Square_MouseClick);
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
-            this.ResumeLayout(false);
-
-        }
-
-        private void Square_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
+            if (IsRevealed == true)
             {
                 if (IsMine == true)
                 {
-                    IsClicked = true;
-                    IsRevealed = false;
+
                     Image = Properties.Resources.bomb;
 
                 }
-                else
+                else if (IsMine == false)
                 {
-                    IsRevealed = true;
-                    IsClicked = true;
+
                     if (AdjacentMines == 1)
                     {
                         Image = Properties.Resources.one;
@@ -114,15 +98,39 @@ namespace G5_Minesweeper
                     }
                 }
             }
+
+        }
+
+        private void InitializeComponent()
+        {
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // Square
+            // 
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Square_MouseClick);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        private void Square_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                IsClicked = true;
+                IsRevealed = true;
+                SetImage();
+            }
             if (e.Button == MouseButtons.Right && IsFlagged == true)
             {
-                
+
                 Image = Properties.Resources.square;
                 this.Refresh();
                 IsClicked = false;
                 IsRevealed = false;
             }
-            else if (e.Button == MouseButtons.Right)
+            else if (e.Button == MouseButtons.Right && IsRevealed == false)
             {
                 Image = Properties.Resources.flag;
                 this.Refresh();
