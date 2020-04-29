@@ -91,30 +91,12 @@ namespace G5_Minesweeper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream death {
-            get {
-                return ResourceManager.GetStream("death", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap eight {
             get {
                 object obj = ResourceManager.GetObject("eight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream endgame {
-            get {
-                return ResourceManager.GetStream("endgame", resourceCulture);
             }
         }
         
@@ -141,9 +123,27 @@ namespace G5_Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream laser {
+        internal static System.IO.UnmanagedMemoryStream nsmb_coin {
             get {
-                return ResourceManager.GetStream("laser", resourceCulture);
+                return ResourceManager.GetStream("nsmb_coin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream nsmb_death {
+            get {
+                return ResourceManager.GetStream("nsmb_death", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream nsmb_power_up {
+            get {
+                return ResourceManager.GetStream("nsmb_power_up", resourceCulture);
             }
         }
         
@@ -180,9 +180,36 @@ namespace G5_Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream song {
+        internal static System.IO.UnmanagedMemoryStream smb3_airship_clear {
             get {
-                return ResourceManager.GetStream("song", resourceCulture);
+                return ResourceManager.GetStream("smb3_airship_clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream smb3_enter_level {
+            get {
+                return ResourceManager.GetStream("smb3_enter_level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream smb3_fireball {
+            get {
+                return ResourceManager.GetStream("smb3_fireball", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream smb3_hurry_up {
+            get {
+                return ResourceManager.GetStream("smb3_hurry_up", resourceCulture);
             }
         }
         
@@ -193,15 +220,6 @@ namespace G5_Minesweeper.Properties {
             get {
                 object obj = ResourceManager.GetObject("square", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream start {
-            get {
-                return ResourceManager.GetStream("start", resourceCulture);
             }
         }
         

@@ -124,14 +124,8 @@
   <data name="bomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bomb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="death" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="eight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="endgame" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\endgame.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="flag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,8 +133,14 @@
   <data name="four" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\four.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="laser" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\laser.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nsmb_coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nsmb_coin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nsmb_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nsmb_death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nsmb_power_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nsmb_power-up.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="one" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\one.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,14 +151,20 @@
   <data name="six" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\six.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="song" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\song.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="smb3_airship_clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb3_airship_clear.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb3_enter_level" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb3_enter_level.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb3_fireball" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb3_fireball.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb3_hurry_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb3_hurry_up.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="square" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\start.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="three" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\three.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

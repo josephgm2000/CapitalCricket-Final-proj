@@ -146,5 +146,26 @@
   <ItemGroup>
     <None Include="Resources\laser.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smb3_enter_level.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smb3_hurry_up.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nsmb_coin.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nsmb_power-up.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smb3_fireball.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nsmb_death.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smb3_airship_clear.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

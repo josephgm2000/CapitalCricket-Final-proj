@@ -21,7 +21,7 @@ namespace G5_Minesweeper
         private bool FirstClick = false;
         private int score;
         private int WinGame;
-        
+
 
         public Game()
         {
@@ -44,7 +44,7 @@ namespace G5_Minesweeper
             }
             PowerUps = new PowerUp();
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
-            var startUp = new SoundPlayer(Properties.Resources.song);
+            var startUp = new SoundPlayer(Properties.Resources.smb3_enter_level);
             startUp.Play();
             if (beginGame == DialogResult.OK)
             {
@@ -74,7 +74,7 @@ namespace G5_Minesweeper
             var clickedSquares = from square in Squares
                                  where square.IsRevealed == true
                                  select square;
-           
+
             RenderOutput();
             clickedSquares.ToList();
             minesFlagged.ToList();
@@ -90,10 +90,12 @@ namespace G5_Minesweeper
             //        PowerUps.FogOfWar();
             //        GameTimer.Interval = 10;
             //    }
-                
-            }
-            if (clickedSquares.Count() == WinGame && score == mines.Count())
+
+
+            if (/*clickedSquares.Count() == WinGame &&*/ score == mines.Count())
             {
+                var happyNoises = new SoundPlayer(Properties.Resources.smb3_airship_clear);
+                happyNoises.Play();
                 GameTimer.Interval = 30000;
                 var youWon = MessageBox.Show("You Won! :)", "Click OK to exit the game", MessageBoxButtons.OK);
                 if (youWon == DialogResult.OK)
@@ -108,8 +110,11 @@ namespace G5_Minesweeper
                     mine.IsRevealed = true;
                     mine.SetImage();
                 }
+                var loseSound = new SoundPlayer(Properties.Resources.nsmb_death);
+                loseSound.Play();
                 GameTimer.Interval = 30000;
                 var overBox = MessageBox.Show("Game Over :(", "Click OK to exit the game", MessageBoxButtons.OK);
+                
                 if (overBox == DialogResult.OK)
                 {
 
@@ -163,6 +168,7 @@ namespace G5_Minesweeper
 
         }
 
+
         public void RenderOutput()
         {
             ScoreLabel.Text = Convert.ToString(score);
@@ -170,7 +176,7 @@ namespace G5_Minesweeper
 
         private void PlayTimer_Tick(object sender, EventArgs e)
         {
-            if(Board.TimeLeft > 0)
+            if (Board.TimeLeft > 0)
             {
                 Board.TimeLeft -= 1;
                 RealTime.Text = Convert.ToString(Board.TimeLeft);
@@ -180,6 +186,23 @@ namespace G5_Minesweeper
                 PlayTimer.Interval = 30000;
                 var timesOut = MessageBox.Show("Press OK to exit the game", "Game Over! You ran out of time :(");
             }
+            if (Board.TimeLeft == 60)
+            {
+                var hurryUp = MessageBox.Show("Press OK to continue playing", "Hurry Up!, 60 Seconds left!", MessageBoxButtons.OK);
+                var hurrySound = new SoundPlayer(Properties.Resources.smb3_hurry_up);
+                hurrySound.Play();
+            }
+            if(GameTimer.Enabled == false)
+            {
+                PlayTimer.Enabled = false;
+            }
+            if(GameTimer.Interval == 30000)
+            {
+                PlayTimer.Enabled = false;
+            }
+
         }
     }
 }
+
+

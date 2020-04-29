@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
 
@@ -31,7 +32,7 @@ namespace G5_Minesweeper
         public void SetMine()
         {
             double rnd = reshuffle.NextDouble();
-            if (rnd <= .30)
+            if (rnd <= .33)
             {
                 IsMine = true;
 
@@ -132,6 +133,8 @@ namespace G5_Minesweeper
             {
                 if (IsFlagged == false)
                 {
+                    var flagged = new SoundPlayer(Properties.Resources.nsmb_coin);
+                    flagged.Play();
                     IsFlagged = true;
                     IsClicked = true;
                     IsRevealed = false;
