@@ -38,7 +38,7 @@ namespace G5_Minesweeper
             set { cHeight = value; }
         }
 
-        public Board()
+        public Board() // Constructor to set Board Size and then generate board - Wilson Daghfal 
         {
             var difficulty = MessageBox.Show("Click Yes if you want to play on Easy mode, Click No to see other options", "Please choose a difficulty level", MessageBoxButtons.YesNo);
             if (difficulty == DialogResult.Yes)
@@ -109,7 +109,7 @@ namespace G5_Minesweeper
         }
 
 
-        private int CalculateAdjacentMines(int row, int col)
+        private int CalculateAdjacentMines(int row, int col) // Thank you Dr. D for this amazing one line of code - Wilson Daghfal 
         {
             int mines = 0;
             for (int i = row - 1; i <= row + 1; i++)
@@ -128,7 +128,7 @@ namespace G5_Minesweeper
             return mines;
         }
 
-        public void AdjacentMines() // Method to display the numbers on the squares surrounding mines 
+        public void AdjacentMines() // Method to display the numbers on the squares surrounding mines - Retweet on the prior method
         {
             for (int i = 0; i < CHeight; i++)
             {
@@ -142,13 +142,13 @@ namespace G5_Minesweeper
             }
         }
 
-        public void FirstClick(int row, int col)
+        public void FirstClick(int row, int col) // Method to display an open area of squares on the players first click - Wilson Daghfal 
         {
             int count = 0;
             List<int> rows = new List<int>();
             List<int> columns = new List<int>();
 
-            for (int i = row - 1; i <= row + 1; i++)
+            for (int i = row - 1; i <= row + 1; i++) // nested loop to run adjacent mines and reveal mines 
             {
                 for (int j = col - 1; j <= col + 1; j++)
                 {

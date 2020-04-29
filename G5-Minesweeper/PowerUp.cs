@@ -5,17 +5,16 @@ using System.Text;
 
 namespace G5_Minesweeper
 {
-    public class PowerUp : Board
+    public class PowerUp : Board // Executes powerups that help the player during the game - Luke Shaffer
     {
-        
-        public PowerUp(int rowW, int colH, int totalMines)
+        public PowerUp(int rowW, int colH, int totalMines) //constructor - Luke Shaffer
         {
             RWidth = rowW;
             CHeight = colH;
             TotalMines = totalMines;
         }
-        
-        public void FogOfWar()
+
+        public void FogOfWar()// powerup: flags two random unflagged mines on the board - Luke Shaffer 
         {
             List<int> rows = new List<int>();
             List<int> columns = new List<int>();
@@ -44,8 +43,6 @@ namespace G5_Minesweeper
                     }
                 }
             }
-            
-
         }
     }
 }

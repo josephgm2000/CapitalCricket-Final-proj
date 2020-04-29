@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace G5_Minesweeper
 {
-    public class Square : PictureBox
+    public class Square : PictureBox  //Class for the individual squares that make up the board - Joseph Mattackal
     {
         public bool IsMine { get; set; }
         public bool IsFlagged { get; set; }
@@ -29,7 +29,7 @@ namespace G5_Minesweeper
             InitializeComponent();
         }
 
-        public void SetMine()
+        public void SetMine() //semi-randomly assigns whether or not the square contains a mine
         {
             double rnd = reshuffle.NextDouble();
             if (rnd <= .33)
@@ -39,7 +39,7 @@ namespace G5_Minesweeper
             }
 
         }
-        public void SetImage()
+        public void SetImage()// sets the image for the picturebox
         {
             if (IsRevealed == true)
             {
@@ -121,7 +121,7 @@ namespace G5_Minesweeper
 
         }
 
-        private void Square_MouseClick(object sender, MouseEventArgs e)
+        private void Square_MouseClick(object sender, MouseEventArgs e) //click event handler 
         {
             if (e.Button == MouseButtons.Left)
             {

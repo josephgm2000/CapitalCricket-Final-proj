@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace G5_Minesweeper
 {
-    public partial class Game : Form
+    public partial class Game : Form //Minesweeper game form - Joseph Mattackal
     {
         private List<Square> Squares = new List<Square>();
         private PowerUp PowerUps;
@@ -34,7 +34,7 @@ namespace G5_Minesweeper
             FirstClick = false;
             Board = new Board();
             Board.AdjacentMines();
-            for (int i = 0; i < Board.CHeight; i++)
+            for (int i = 0; i < Board.CHeight; i++) // creates the values in the board - Joseph Mattackal
             {
                 for (int j = 0; j < Board.RWidth; j++)
                 {
@@ -46,16 +46,16 @@ namespace G5_Minesweeper
             {
                 BoardSquares = new Square[Board.RWidth, Board.CHeight]
             };
-            for (int i = 0; i < Board.CHeight; i++)
+            for (int i = 0; i < Board.CHeight; i++) // copys the board values and puts them in the powerups board array - Joseph Mattackal
             {
                 for (int j = 0; j < Board.RWidth; j++)
                 {
                     PowerUps.BoardSquares[i, j] = Board.BoardSquares[i, j];
                 }
             }
-            var rules = MessageBox.Show("1.The first set of squares that you click may lie to you about bombs in their area, click on them to reveal thier true nature. 2.Your mission is to flag every mine on the board, do this by right clicking. 3.After you flag a certain amount of mines your powerUp will activate. Have fun! ","Before you begin here is some info for you", MessageBoxButtons.OK);
+            var rules = MessageBox.Show("1.The first set of squares that you click may lie to you about bombs in their area, click on them to reveal thier true nature. 2.Your mission is to flag every mine on the board, do this by right clicking. 3.After you flag a certain amount of mines your powerUp will activate. Have fun! ", "Before you begin here is some info for you", MessageBoxButtons.OK);
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
-            var startUp = new SoundPlayer(Properties.Resources.smb3_enter_level);
+            var startUp = new SoundPlayer(Properties.Resources.smb3_enter_level); // plays sound on startup
             startUp.Play();
             if (beginGame == DialogResult.OK)
             {
@@ -67,22 +67,22 @@ namespace G5_Minesweeper
 
 
 
-        private void GameTimer_Tick(object sender, EventArgs e)
+        private void GameTimer_Tick(object sender, EventArgs e) // Game : Game Timer - Wilson Daghfal 
         {
             var firstClick = from square in Squares
                              where square.IsClicked == true
                              select square;
-            var gameOver = from square in Squares
+            var gameOver = from square in Squares // finds out if a bomb has been clicked - Joseph Mattackal
                            where square.IsClicked && square.IsMine && square.IsRevealed
                            select square;
-            var mines = from square in Squares
+            var mines = from square in Squares //finds all the bombs in the bord - Joseph Mattackal
                         where square.IsMine
                         select square;
-            var minesFlagged = from square in Squares
+            var minesFlagged = from square in Squares // finds all the flagged mines in the board - Wilson Daghfal
                                where square.IsFlagged == true && square.IsMine == true
                                select square;
 
-            var clickedSquares = from square in Squares
+            var clickedSquares = from square in Squares // finds all the clicked squares in the board - Wilson Daghfal 
                                  where square.IsRevealed == true
                                  select square;
 
@@ -92,10 +92,10 @@ namespace G5_Minesweeper
             score = minesFlagged.Count();
             mines.ToList();
             WinGame = (Board.CHeight * Board.RWidth) - mines.Count();
-            if (score == 8 && Board.RWidth == 7 || score == 18 && Board.RWidth == 9 || score == 35 && Board.RWidth == 11)
+            if (score == 8 && Board.RWidth == 7 || score == 18 && Board.RWidth == 9 || score == 35 && Board.RWidth == 11) // gives conditions for the execution of the power up -  Joseph Mattackal
             {
                 GameTimer.Interval = 15000;
-                var mushroom = new SoundPlayer(Properties.Resources.nsmb_power_up);
+                var mushroom = new SoundPlayer(Properties.Resources.nsmb_power_up);//plays sound when a powerup is executed
                 mushroom.Play();
                 var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
                 if (fogOfWar == DialogResult.OK)
@@ -104,8 +104,8 @@ namespace G5_Minesweeper
                     PowerUps.FogOfWar();
                 }
             }
-           
-            if (score == mines.Count())
+
+            if (score == mines.Count()) // gives condition for execution of the power up - Wilson Daghfal 
             {
                 var happyNoises = new SoundPlayer(Properties.Resources.smb3_airship_clear);
                 happyNoises.Play();
@@ -116,7 +116,7 @@ namespace G5_Minesweeper
                     this.Close();
                 }
             }
-            foreach (var square in gameOver)
+            foreach (var square in gameOver)//executes if the player clicks a mine
             {
                 foreach (var mine in mines)
                 {
@@ -137,7 +137,7 @@ namespace G5_Minesweeper
 
 
             int clickCount = 0;
-            foreach (var square in firstClick)
+            foreach (var square in firstClick) // finds out when the player first clicks on the board - Wilson Daghfal 
             {
                 clickCount++;
                 if (clickCount == 1)
@@ -151,7 +151,7 @@ namespace G5_Minesweeper
             }
 
 
-            for (int i = 0; i < Board.CHeight; i++)
+            for (int i = 0; i < Board.CHeight; i++) // nested loop to find the coordinates of the players first click - Wilson Daghfal 
             {
                 for (int j = 0; j < Board.RWidth; j++)
                 {
@@ -176,12 +176,12 @@ namespace G5_Minesweeper
         }
 
 
-        private void RenderOutput()
+        private void RenderOutput() // displays the players current score - Joseph Mattackal
         {
             ScoreLabel.Text = Convert.ToString(score);
         }
 
-        private void PlayTimer_Tick(object sender, EventArgs e)
+        private void PlayTimer_Tick(object sender, EventArgs e) // visible game that counts down every second
         {
             if (Board.TimeLeft > 0)
             {
