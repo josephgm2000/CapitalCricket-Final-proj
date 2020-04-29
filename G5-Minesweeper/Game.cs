@@ -42,7 +42,17 @@ namespace G5_Minesweeper
                     Squares.Add(Board.BoardSquares[i, j]);
                 }
             }
-            PowerUps = new PowerUp();
+            PowerUps = new PowerUp(Board.RWidth, Board.CHeight, Board.TotalMines)
+            {
+                BoardSquares = new Square[Board.RWidth, Board.CHeight]
+            };
+            for (int i = 0; i < Board.CHeight; i++)
+            {
+                for (int j = 0; j < Board.RWidth; j++)
+                {
+                    PowerUps.BoardSquares[i, j] = Board.BoardSquares[i, j];
+                }
+            }
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
             var startUp = new SoundPlayer(Properties.Resources.smb3_enter_level);
             startUp.Play();
@@ -81,18 +91,19 @@ namespace G5_Minesweeper
             score = minesFlagged.Count();
             mines.ToList();
             WinGame = (Board.CHeight * Board.RWidth) - mines.Count();
-            //if (score == 7)
-            //{
-            //    GameTimer.Interval = 30000;
-            //    var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
-            //    if (fogOfWar == DialogResult.OK)
-            //    {   
-            //        PowerUps.FogOfWar();
-            //        GameTimer.Interval = 10;
-            //    }
+            if (score == 7)
+            {
+                GameTimer.Interval = 30000;
+                var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
+                if (fogOfWar == DialogResult.OK)
+                {
+                    PowerUps.FogOfWar();
+                    GameTimer.Interval = 10;
+                }
+            }
 
 
-            if (/*clickedSquares.Count() == WinGame &&*/ score == mines.Count())
+            if (score == mines.Count())
             {
                 var happyNoises = new SoundPlayer(Properties.Resources.smb3_airship_clear);
                 happyNoises.Play();
@@ -114,7 +125,7 @@ namespace G5_Minesweeper
                 loseSound.Play();
                 GameTimer.Interval = 30000;
                 var overBox = MessageBox.Show("Game Over :(", "Click OK to exit the game", MessageBoxButtons.OK);
-                
+
                 if (overBox == DialogResult.OK)
                 {
 
@@ -166,10 +177,11 @@ namespace G5_Minesweeper
             }
 
 
+
         }
 
 
-        public void RenderOutput()
+        private void RenderOutput()
         {
             ScoreLabel.Text = Convert.ToString(score);
         }
@@ -185,6 +197,10 @@ namespace G5_Minesweeper
             {
                 PlayTimer.Interval = 30000;
                 var timesOut = MessageBox.Show("Press OK to exit the game", "Game Over! You ran out of time :(");
+                if (timesOut == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
             if (Board.TimeLeft == 60)
             {
@@ -192,16 +208,17 @@ namespace G5_Minesweeper
                 var hurrySound = new SoundPlayer(Properties.Resources.smb3_hurry_up);
                 hurrySound.Play();
             }
-            if(GameTimer.Enabled == false)
+            if (GameTimer.Enabled == false)
             {
                 PlayTimer.Enabled = false;
             }
-            if(GameTimer.Interval == 30000)
+            if (GameTimer.Interval == 30000)
             {
                 PlayTimer.Enabled = false;
             }
 
         }
+
     }
 }
 

@@ -29,26 +29,7 @@ namespace GameCode
         //    using (StreamWriter sw = File.CreateText(fileName))
         //    {
         //        sw.WriteLine("You win!");
-        //        sw.WriteLine("{Length of time to win}");
-        //        //establish length of time to win variable first
-        //    }
-
-        //    // writes file contents on console
-        //    using (StreamReader sr = File.OpenText(fileName))
-        //    {
-        //        string f = "";
-        //        while ((s = sr.ReadLine()) != null)
-        //        {
-        //            Console.WriteLine(f);
-        //        }
-        //    }
-
-
-        //catch (Exception Ex)
-        //{
-        //    Console.WriteLine(Ex.ToString());
-        //}
-
+        //        sw.WriteLine("");
 
 
         //if (Player 1.squareVal > Player2.squareVal)
