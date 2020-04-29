@@ -20,9 +20,34 @@ namespace GameCode
 
         try
         {
+            // checking if file exists and if file does exist, deletes it
+            // checking if file exists and if file does exist, deletes it
+            // checking if file exists and if file does exist, deletes it
             if (File.Exists(textFile))
-            { 
-                File.Delete(textFile);
+            {
+
+            // creates text file and sets parameters                File.Delete(textFile);
+
+            // creates text file and sets parameters                File.Delete(textFile);
+
+            // creates text file and sets parameters                File.Delete(textFile);
+
+            // creates tex tfile                 File.Delete(textFile);
+
+                           //// creates tex t                File.Delete(textFile);
+
+reads text file and wrties tites to consoler                           //// creates tex t                File.Delete(textFile);
+
+                           //// creates tex t                File.Delete(textFile);
+
+
+        //// creates tex t                File.Delete(textFile);
+
+
+
+    }
+}
+}                          //// creates tex t                File.Delete(textFile);
             }
 
             using (StreamWriter sw = File.CreateText(textFile))
@@ -31,7 +56,8 @@ namespace GameCode
                   {
                       sw.WriteLine({GameTimer.Interval});
                   }
-              } 
+              }
+
             
             using (StreamReader sr = File.OpenText(textFile)
             {
