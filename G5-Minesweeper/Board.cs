@@ -154,7 +154,7 @@ namespace G5_Minesweeper
                 {
                     if (i >= 0 && j >= 0 && i < CHeight && j < RWidth)
                     {
-                        if (BoardSquares[i, j].IsMine)
+                        if (BoardSquares[i, j].IsMine == true)
                         {
                             BoardSquares[i, j].IsMine = false;
                             count++;

@@ -7,18 +7,14 @@ namespace G5_Minesweeper
 {
     public class PowerUp : Board
     {
-
+        
         public PowerUp(int rowW, int colH, int totalMines)
         {
             RWidth = rowW;
             CHeight = colH;
             TotalMines = totalMines;
         }
-        public void GoldenDome(int row, int col)
-        {
-            BoardSquares[row, col].IsMine = false;
-            TotalMines--;
-        }
+        
         public void FogOfWar()
         {
             List<int> rows = new List<int>();

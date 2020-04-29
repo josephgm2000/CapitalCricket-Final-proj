@@ -15,37 +15,1512 @@ namespace GameCode
             FirstName = firstName;
             LastName = lastName;
         }
-        //string fileName = @"file name";
 
-        //try
-        //{
-        //    // checking if file already exists and if yes, deletes it
-        //    if  (File.Exists(fileName))
-        //    {
-        //        File.Delete(fileName);
-        //    }
+        string textFile = @"c:\temp\MyTextFile.txt";
 
-        //    // creates a new file
-        //    using (StreamWriter sw = File.CreateText(fileName))
-        //    {
-        //        sw.WriteLine("You win!");
-        //        sw.WriteLine("");
+        try
+        {
+            if (File.Exists(textFile))
+            {
+                File.Delete(textFile);
+            }
 
+            using (StreamWriter sw = File.CreateText(textFile))
+              {
+                  if (var gameOver = true && WinGame = true)
+                  {
+                      sw.WriteLine({GameTimer.Interval});
+                  }
+              } 
+            
+            using (Strea)Reader sr = File.OpenText(textFile)
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
 
-        //if (Player 1.squareVal > Player2.squareVal)
-        //{
-        //    string[] lines = {"Player 1 time," "Player 2 time" };
-        //    System.IO.File.WriteAllLines("", lines);
-        //}
-        //FileStream fs;
-        //StreamWriter fw;
-        
-        ////creates file stream object
-        //fs = new FileStream("file name", FileMode.CreateNew, FileAccess.Write);
-        //// creates writer object
-        //fw = new StreamWriter(fs);
-        //// writes text to file
-        //fw.Console.WriteLine("You win!");
-        //fw.Console.WriteLine("{Length of time to win}");
-    }
-}
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s)
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Co
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    C
+                }
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine() )
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine())
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = sr.ReadLine()))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s = ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ((s ))
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                while ()
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string s = "";
+                
+            }using (Stream)
+
+            
+            {
+                string 
+            }using (Stream)
+
+            
+            {
+                string
+            }using (Stream)
+
+            
+            using (Stream)
+
+            
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Stream)
+            using (Str)

@@ -91,18 +91,19 @@ namespace G5_Minesweeper
             score = minesFlagged.Count();
             mines.ToList();
             WinGame = (Board.CHeight * Board.RWidth) - mines.Count();
-            if (score == 7)
+            if (score == 8 && Board.RWidth == 7 || score == 18 && Board.RWidth == 9 || score == 35 && Board.RWidth == 11)
             {
-                GameTimer.Interval = 30000;
+                GameTimer.Interval = 15000;
+                var mushroom = new SoundPlayer(Properties.Resources.nsmb_power_up);
+                mushroom.Play();
                 var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
                 if (fogOfWar == DialogResult.OK)
                 {
-                    PowerUps.FogOfWar();
                     GameTimer.Interval = 10;
+                    PowerUps.FogOfWar();
                 }
             }
-
-
+           
             if (score == mines.Count())
             {
                 var happyNoises = new SoundPlayer(Properties.Resources.smb3_airship_clear);
@@ -159,13 +160,6 @@ namespace G5_Minesweeper
                         {
                             if (Board.BoardSquares[i, j].Top == square.Top && Board.BoardSquares[i, j].Left == square.Left)
                             {
-                                if (Board.BoardSquares[i, j].IsMine == true)
-                                {
-                                    Board.BoardSquares[i, j].IsMine = false;
-                                    Board.TotalMines--;
-                                    Board.AdjacentMines();
-                                    Board.BoardSquares[i, j].SetImage();
-                                }
                                 Board.FirstClick(j, i);
                                 Board.AdjacentMines();
                                 Board.BoardSquares[i, j].Refresh();
