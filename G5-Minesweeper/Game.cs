@@ -81,15 +81,15 @@ namespace G5_Minesweeper
             score = minesFlagged.Count();
             mines.ToList();
             WinGame = (Board.CHeight * Board.RWidth) - mines.Count();
-            if (score == 7)
-            {
-                GameTimer.Interval = 30000;
-                var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
-                if (fogOfWar == DialogResult.OK)
-                {   
-                    PowerUps.FogOfWar();
-                    GameTimer.Interval = 10;
-                }
+            //if (score == 7)
+            //{
+            //    GameTimer.Interval = 30000;
+            //    var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
+            //    if (fogOfWar == DialogResult.OK)
+            //    {   
+            //        PowerUps.FogOfWar();
+            //        GameTimer.Interval = 10;
+            //    }
                 
             }
             if (clickedSquares.Count() == WinGame && score == mines.Count())
