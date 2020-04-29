@@ -21,7 +21,7 @@ namespace GameCode
         try
         {
             if (File.Exists(textFile))
-            {
+            { 
                 File.Delete(textFile);
             }
 
