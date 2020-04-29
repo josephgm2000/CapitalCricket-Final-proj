@@ -53,6 +53,7 @@ namespace G5_Minesweeper
                     PowerUps.BoardSquares[i, j] = Board.BoardSquares[i, j];
                 }
             }
+            var rules = MessageBox.Show("1.The first set of squares that you click may lie to you about bombs in their area, click on them to reveal thier true nature. 2.Your mission is to flag every mine on the board, do this by right clicking. 3.After you flag a certain amount of mines your powerUp will activate. Have fun! ","Before you begin here is some info for you", MessageBoxButtons.OK);
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
             var startUp = new SoundPlayer(Properties.Resources.smb3_enter_level);
             startUp.Play();
