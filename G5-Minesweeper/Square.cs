@@ -31,7 +31,7 @@ namespace G5_Minesweeper
         public void SetMine()
         {
             double rnd = reshuffle.NextDouble();
-            if (rnd <= .30)
+            if (rnd <= .40)
             {
                 IsMine = true;
 

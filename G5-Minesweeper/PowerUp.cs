@@ -17,7 +17,7 @@ namespace G5_Minesweeper
             BoardSquares[row, col].IsMine = false;
             TotalMines--;
         }
-        public void FogOfWar()
+        public void FogOfWar(int x1, int y1, int x2, int y2)
         {
             List<int> rows = new List<int>();
             List<int> columns = new List<int>();
@@ -46,6 +46,7 @@ namespace G5_Minesweeper
                     }
                 }
             }
+            
 
         }
     }

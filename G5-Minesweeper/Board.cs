@@ -9,6 +9,7 @@ namespace G5_Minesweeper
     public class Board
     {
         public Square[,] BoardSquares { get; set; }
+        public int TimeLeft { get; set; }
 
         private int totalMines;
         public int TotalMines
@@ -45,6 +46,7 @@ namespace G5_Minesweeper
                 RWidth = 7;
                 CHeight = 7;
                 TotalMines = 15;
+                TimeLeft = 300;
             }
             else
             {
@@ -54,12 +56,14 @@ namespace G5_Minesweeper
                     RWidth = 9;
                     CHeight = 9;
                     TotalMines = 30;
+                    TimeLeft = 420;
                 }
                 else
                 {
                     RWidth = 11;
                     CHeight = 11;
                     TotalMines = 65;
+                    TimeLeft = 540;
                 }
             }
             BoardSquares = new Square[RWidth, CHeight];

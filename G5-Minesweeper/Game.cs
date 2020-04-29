@@ -16,12 +16,13 @@ namespace G5_Minesweeper
     public partial class Game : Form
     {
         private List<Square> Squares = new List<Square>();
-        private PowerUp PowerUps = new PowerUp();
+        private PowerUp PowerUps;
         private Board Board;
         private bool FirstClick = false;
         private int score;
         private int WinGame;
         
+
         public Game()
         {
             InitializeComponent();
@@ -41,12 +42,15 @@ namespace G5_Minesweeper
                     Squares.Add(Board.BoardSquares[i, j]);
                 }
             }
+            PowerUps = new PowerUp();
             var beginGame = MessageBox.Show("Welcome to Minesweeper!", "Click OK to begin playing", MessageBoxButtons.OK);
             var startUp = new SoundPlayer(Properties.Resources.song);
             startUp.Play();
             if (beginGame == DialogResult.OK)
             {
                 GameTimer.Enabled = true;
+                RealTime.Text = Convert.ToString(Board.TimeLeft);
+                PlayTimer.Enabled = true;
             }
         }
 
@@ -66,42 +70,54 @@ namespace G5_Minesweeper
             var minesFlagged = from square in Squares
                                where square.IsFlagged == true && square.IsMine == true
                                select square;
-            
+
             var clickedSquares = from square in Squares
                                  where square.IsRevealed == true
                                  select square;
+           
             RenderOutput();
             clickedSquares.ToList();
             minesFlagged.ToList();
             score = minesFlagged.Count();
             mines.ToList();
             WinGame = (Board.CHeight * Board.RWidth) - mines.Count();
+            if (score == 7)
+            {
+                GameTimer.Interval = 30000;
+                var fogOfWar = MessageBox.Show("Press OK to Activate your Power Up", "You have gained the Fog Of War Power Up", MessageBoxButtons.OK);
+                if (fogOfWar == DialogResult.OK)
+                {   
+                    PowerUps.FogOfWar();
+                    GameTimer.Interval = 10;
+                }
+                
+            }
             if (clickedSquares.Count() == WinGame && score == mines.Count())
             {
                 GameTimer.Interval = 30000;
                 var youWon = MessageBox.Show("You Won! :)", "Click OK to exit the game", MessageBoxButtons.OK);
-                if(youWon == DialogResult.OK)
+                if (youWon == DialogResult.OK)
                 {
                     this.Close();
                 }
             }
-            //foreach (var square in gameOver)
-            //{
-            //    foreach (var mine in mines)
-            //    {
-            //        mine.IsRevealed = true;
-            //        mine.SetImage();
-            //    }
-            //    GameTimer.Interval = 30000;
-            //    var overBox = MessageBox.Show("Game Over :(", "Click OK to exit the game", MessageBoxButtons.OK);
-            //    if(overBox == DialogResult.OK)
-            //    {
-                    
-            //        this.Close();
-            //    }
-            //}
+            foreach (var square in gameOver)
+            {
+                foreach (var mine in mines)
+                {
+                    mine.IsRevealed = true;
+                    mine.SetImage();
+                }
+                GameTimer.Interval = 30000;
+                var overBox = MessageBox.Show("Game Over :(", "Click OK to exit the game", MessageBoxButtons.OK);
+                if (overBox == DialogResult.OK)
+                {
 
-           
+                    this.Close();
+                }
+            }
+
+
             int clickCount = 0;
             foreach (var square in firstClick)
             {
@@ -127,7 +143,7 @@ namespace G5_Minesweeper
                         {
                             if (Board.BoardSquares[i, j].Top == square.Top && Board.BoardSquares[i, j].Left == square.Left)
                             {
-                                if(Board.BoardSquares[i,j].IsMine == true)
+                                if (Board.BoardSquares[i, j].IsMine == true)
                                 {
                                     Board.BoardSquares[i, j].IsMine = false;
                                     Board.TotalMines--;
@@ -152,5 +168,18 @@ namespace G5_Minesweeper
             ScoreLabel.Text = Convert.ToString(score);
         }
 
+        private void PlayTimer_Tick(object sender, EventArgs e)
+        {
+            if(Board.TimeLeft > 0)
+            {
+                Board.TimeLeft -= 1;
+                RealTime.Text = Convert.ToString(Board.TimeLeft);
+            }
+            else
+            {
+                PlayTimer.Interval = 30000;
+                var timesOut = MessageBox.Show("Press OK to exit the game", "Game Over! You ran out of time :(");
+            }
+        }
     }
 }
